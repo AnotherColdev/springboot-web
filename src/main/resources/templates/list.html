@@ -7,8 +7,22 @@
 </head>
 <body>
     <h1 th:text="${title}">List Homepage</h1>
-    <div th:if="${users.size() == 0}">
+    <div th:if="${users.isEmpty()}">
         <h2>No users found</h2>
     </div>
+    <table th:if="${!users.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
