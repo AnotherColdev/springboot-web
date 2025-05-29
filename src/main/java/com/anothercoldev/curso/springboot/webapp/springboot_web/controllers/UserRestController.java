@@ -22,7 +22,7 @@ public class UserRestController {
         User user = new User("another", "coldev");
         Map<String, Object> body = new HashMap<>();
         body.put("title", "Hola Spring Rest");
-        body.put("description", "Curso de Spring Boot");
+        body.put("description", "C urso de Spring Boot");
         body.put("version", "1.0");
         body.put("user", user);
         return body;
