@@ -12,12 +12,21 @@ import com.anothercoldev.curso.springboot.webapp.springboot_web.models.DTO.Param
 public class RequestParamsController {
 
     @GetMapping("/foo")
-    public ParamDTO foo(@RequestParam(required = false) String message) {
+    public ParamDTO foo(@RequestParam(required = false, defaultValue = "valor por defecto del message") String message) {
 
         ParamDTO param = new ParamDTO();
         param.setMessage(message != null ? message : "No message");
 
         return param;
     }
+
+    @GetMapping("/bar")
+    public ParamDTO bar(@RequestParam() String text, @RequestParam() Integer code) {
+        ParamDTO param = new ParamDTO();
+        param.setMessage(text);
+        param.setCode(code);
+        return param;
+    }
+    
 
 }
